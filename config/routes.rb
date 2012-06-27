@@ -1,4 +1,7 @@
 TwitterResearch::Application.routes.draw do
+#"a module called TwitterResearch, with a class called Application, with a method called routes, that probably instantiates an object, which has a method called draw, and then a block"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +51,7 @@ TwitterResearch::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'searches#index'
 
   # See how all your routes lay out with "rake routes"
 
