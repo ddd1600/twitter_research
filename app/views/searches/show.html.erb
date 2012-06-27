@@ -3,7 +3,7 @@
 
 <ul>
 <% @results['results'].each do |r| %>
-	<li> <%= r['text'] %> </li>
+	<li> <%= r['text'] %>, <em><strong> by <%= r['from_user']%></em></strong> </li>
 	<% end %>
 </ul>
 	
