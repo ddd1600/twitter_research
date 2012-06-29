@@ -20,29 +20,29 @@
 	</tr>
 	
 	<% i = 0 %>
-	<% @rpp.times do |i| %>
+	<% @results.each do |r| %>
 	<tr class="tweets">
 
 		<script>
 			$("td.status").click(function(){
-   			window.location = "http://www.twitter.com/id/status/<%= @page_ids[i] %>";
+   			window.location = "http://www.twitter.com/id/status/<%= r.page_id %>";
  			});
  		</script>
 
  		<script>
  			$("td.user").click(function(){
-   			window.location = "http://www.twitter.com/<%= @screen_names[i] %>";
+   			window.location = "http://www.twitter.com/<%= r.screen_name %>";
  			});
  		</script>
 
-		<td class="user"><img src="<%= @img_urls[i] %>"></td>
+		<td class="user"><img src="<%= r.img_url %>"></td>
 
-		<td class="user"><strong><%= @screen_names[i] %></strong></td>
+		<td class="user"><strong><%= r.screen_name %></strong></td>
 
-		<td class="user"><%= @real_names[i] %></td>
+		<td class="user"><%= r.real_name %></td>
 
-		<td class="time"><%= @times_ago[i] %></td>
-		<td class="status"><%= @statuses[i] %></td>
+		<td class="time"><%= r.time_ago %></td>
+		<td class="status"><%= r.status %></td>
 	</tr>
 <% i += 1 %>
 <% end %>
