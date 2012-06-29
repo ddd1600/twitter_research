@@ -1,10 +1,55 @@
 <h1>You searched for <%= params[:q] %></h1>
-<pre><%= @results.inspect %></pre>
 
-<ul>
-<% @results['results'].each do |r| %>
-	<li> <%= r['text'] %>, <em><strong> by <%= r['from_user']%></em></strong> </li>
-	<% end %>
-</ul>
+<br />
+
+<form action="/searches/0" method="get">
+	<label>Search for something else</label>
+	<br>
+	<input id="input" type="text" name="q" />  <!-- 'q' goes into the params hash -->
 	
+	<input class="submitbutton" type="submit" name="submit" value="Search Twitter         Woo Hoo" />
+</form>
+<br>
+
+
+<table class="sandwiches">
+
+	<tr class="headers">
+		<td>&nbsp;</td>
+		<td><strong>Screen Name</strong></td>
+		<td><strong>"Real Name"</strong></td>
+		<td><strong>Tweeted...</strong></td>
+		<td><strong>Status</strong></td>
+	</tr>
+	
+	<% i = 0 %>
+	<% @rpp.times do |i| %>
+	<tr class="tweets">
+
+		<script>
+			$("td.status").click(function(){
+   			window.location = "http://www.twitter.com/id/status/<%= @page_ids[i] %>";
+ 			});
+ 		</script>
+
+ 		<script>
+ 			$("td.user").click(function(){
+   			window.location = "http://www.twitter.com/<%= @screen_names[i] %>";
+ 			});
+ 		</script>
+
+		<td class="user"><img src="<%= @img_urls[i] %>"></td>
+
+		<td class="user"><strong><%= @screen_names[i] %></strong></td>
+
+		<td class="user"><%= @real_names[i] %></td>
+
+		<td class="time"><%= @times_ago[i] %></td>
+		<td class="status"><%= @statuses[i] %></td>
+	</tr>
+<% i += 1 %>
+<% end %>
+</table>
+
+
 
