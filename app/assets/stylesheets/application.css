@@ -34,6 +34,9 @@ height: 25px;
 -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
+#input:hover {
+	opacity: 30;
+}
 
 /*
 .submitbutton {
@@ -81,6 +84,9 @@ color: #333;
 .submitbutton:hover {
   width: 200px;
   cursor: pointer; cursor: hand;
+}
+.submitbutton:active {
+	opacity:0.5;
 }
 
 

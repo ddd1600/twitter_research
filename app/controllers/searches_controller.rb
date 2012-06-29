@@ -46,6 +46,8 @@ class SearchesController < ApplicationController
             elsif whole_num > 60
               time_ago = whole_num/60
               time_ago = "#{time_ago} minutes ago.."
+ #           elsif whole_num > 3600
+ #             time_ago = "#{whole_num/3600} hours ago.."
             else
               time_ago = "#{whole_num} seconds ago.."
         end
