@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 
-gem 'simple_twitter', '1.0.1'
+gem 'simple_twitter', '1.0.3'
 
 gem 'css3buttons', '0.9.5'
 

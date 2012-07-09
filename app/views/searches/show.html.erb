@@ -22,7 +22,7 @@
 	<% i = 0 %>
 	<% @results.each do |r| %>
 	<tr class="tweets">
-
+		
 		<script>
 			$("td.status").click(function(){
    			window.location = "http://www.twitter.com/id/status/<%= r.page_id %>";
@@ -35,9 +35,10 @@
  			});
  		</script>
 
+
 		<td class="user"><img src="<%= r.img_url %>"></td>
 
-		<td class="user"><strong><%= r.screen_name %></strong></td>
+		<a href="http://www.twitter.com/<%= r.screen_name %>"><td class="user"><strong><%= r.screen_name %></strong></td></a>
 
 		<td class="user"><%= r.real_name %></td>
 

@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
     instance = SimpleTwitter::Search.new
     @results = instance.search(params[:q])
     
-    @rpp = instance.results_per_page
+#####    @rpp = instance.results_per_page
     
 #    instance.results_per_page = params[:results_per_page]
     
