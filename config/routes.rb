@@ -1,4 +1,8 @@
 TwitterResearch::Application.routes.draw do
+  devise_for :users
+
+  devise_for :models
+
 #"a module called TwitterResearch, with a class called Application, with a method called routes, that probably instantiates an object, which has a method called draw, and then a block"
 
 
