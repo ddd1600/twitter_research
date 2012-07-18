@@ -2,6 +2,7 @@ require 'time'
 
 class SearchesController < ApplicationController
 
+
   def index
      @message = "What up!"
   end

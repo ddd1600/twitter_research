@@ -4,10 +4,13 @@ gem 'rails', '3.2.6'
 
 gem 'devise'
 
+gem 'simple_twitter', '1.0.4'
 
 #the below special command tells bundler to find this gem on github, AND to get the 'version' or moment in time
 #of the git repo at the time it was tagged, ex. "before junior developer edited code", "after jr dev edited code", etc.
-gem 'simple_twitter', :git => 'https://github.com/ddd1600/simple_twitter.git', :tag => 'v1.0.0'
+
+#gem 'simple_twitter', :git => 'https://github.com/ddd1600/simple_twitter.git', :tag => 'v1.0.0'
+
 #we used https (non-ssh), not git@github thing (ssh) because we only need read access, not read/write access which is what
 #the ssh version allows for
 
