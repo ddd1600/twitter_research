@@ -11,20 +11,40 @@ class Tweet < ActiveRecord::Base
 	has_and_belongs_to_many :categories
 #if had a category called "cat", one could do cat.tweets and get all the tweets assoc'd with the cat category	
 	
-	def suggested_categories
-		
-		categories = Category.all.map(&:title).map(&:downcase)		
-		words_in_tweet = status.downcase.gsub(/#/, '').split
-		includes_business = words_in_tweet.include?("business")
-		includes_money = words_in_tweet.include?("money")
-		c_cap = categories.map {|t| t.capitalize}
-		t_cap = words_in_tweet.map {|t| t.capitalize}
-		if includes_business ==true and includes_money ==true
-			c_cap & t_cap
-			else
-				nil
-		end	
+def suggested_categories
+	categories = Category.all.map(&:title).map(&:downcase)
+	tweet = tweeted_text.gsub(/[^\w\s]/, ' ').downcase.split.sort
+	same = tweet & categories
+	same.map(&:capitalize).sort.join(', ')
 end
+
+def categories_as_string
+	categories.map(&:title).sort.join(', ')
+end
+
+def categories_as_string= (new_categories)
+	categories.clear
+
+	new_categories.split(/\s*, \s*/).each do |title|
+		cat = Category.where('LOWER(title) = ?', title.downcase).first
+		categories << cat if !cat.nil?
+end
+end
+
+#	def suggested_categories
+#		
+#		categories = Category.all.map(&:title).map(&:downcase)		
+#		words_in_tweet = status.downcase.gsub(/#/, '').split
+#		includes_business = words_in_tweet.include?("business")
+#		includes_money = words_in_tweet.include?("money")
+#		c_cap = categories.map {|t| t.capitalize}
+#		t_cap = words_in_tweet.map {|t| t.capitalize}
+#		if includes_business ==true and includes_money ==true
+#			c_cap & t_cap
+#			else
+#				nil
+#		end	
+#end
 
 end
 

@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
   end
 
   def show
+		debugger
     instance = SimpleTwitter::Search.new
     @results = instance.search(params[:q])
     
